@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
+
+    <div style="text-align: center;">
+        <form style="display: flex; flex-direction: column; align-items: center;">
+            <input type="number" placeholder="Enter a value" id="fnum" style="margin: 5px; padding: 2px; font-size: 16px;">
+            <input type="number" placeholder="Enter a value" id="snum" style="margin: 5px; padding: 2px; font-size: 16px;">
+        </form>
+        <div>
+            <button id="add" style="margin: 5px; padding: 2px 15px; font-size: 16px;">+</button>
+            <button id="subtract" style="margin: 5px; padding: 2px 15px; font-size: 16px;">-</button>
+            <button id="multiply" style="margin: 5px; padding: 2px 15px; font-size: 16px;">x</button>
+            <button id="percentage" style="margin: 5px; padding: 2px 15px; font-size: 16px;">%</button>
+        </div>
+        <span id="res" style="display: block; font-weight: bold;">Your result here</span>
+    </div>
+    
+    <script>
+
+        const fnumInput = document.getElementById('fnum');
+        const snumInput = document.getElementById('snum');
+        const resDisplay = document.getElementById('res');
+
+        const addButton = document.getElementById('add');
+        const subtractButton = document.getElementById('subtract');
+        const multiplyButton = document.getElementById('multiply');
+        const percentageButton = document.getElementById('percentage');
+    
+
+        function updateResult(result) {
+            resDisplay.textContent = result;
+        }
+            addButton.addEventListener('click', () => {
+            let fnum = parseFloat(fnumInput.value);
+            let snum = parseFloat(snumInput.value);
+            const result = fnum + snum;
+            updateResult(result);
+        });
+    
+
+        subtractButton.addEventListener('click', () => {
+            let fnum = parseFloat(fnumInput.value);
+            let snum = parseFloat(snumInput.value);
+            const result = fnum - snum;
+            updateResult(result);
+        });
+    
+
+        multiplyButton.addEventListener('click', () => {
+            let fnum = parseFloat(fnumInput.value);
+            let snum = parseFloat(snumInput.value);
+            const result = fnum * snum;
+            updateResult(result);
+        });
+    
+
+        percentageButton.addEventListener('click', () => {
+            let fnum = parseFloat(fnumInput.value);
+            let snum = parseFloat(snumInput.value);
+            const result = (fnum * snum) / 100;
+            updateResult(result);
+        });
+    </script>
+    
+</body>
+</html>
