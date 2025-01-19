@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Verification</title>
+</head>
+<body>
+    <form>
+        <label for="DOB">Enter your Date of Birth:</label>
+        <input type="date" placeholder="Enter your date of birth (YYYY)" id="DOB">        
+        <br>
+        <label for="age">Enter your age</label>
+        <input type="text" placeholder="Enter your age" id="age">
+    </form>
+    <button id="verify">Verify</button>
+    <br>
+    <span id="res">Display result here</span>
+    <br>
+    <span id="adultCheck"></span>
+
+    <script>
+        const dobInput = document.getElementById('DOB');
+        const ageInput = document.getElementById('age');
+        const resultDisplay = document.getElementById('res');
+        const adultCheckDisplay = document.getElementById('adultCheck');
+        const verifyButton = document.getElementById('verify');
+
+        verifyButton.addEventListener('click', () => {
+       const currentYear = 2025;
+       const enteredDOB = new Date(dobInput.value); 
+       const enteredAge = parseInt(ageInput.value);
+
+       const calculatedAge = currentYear - enteredDOB.getFullYear(); 
+       const isValid = (calculatedAge === enteredAge);
+
+       resultDisplay.textContent = isValid ? "Age is correct." : "Age is incorrect.";
+
+       const isAdult = calculatedAge >= 18;
+       adultCheckDisplay.textContent = isAdult ? "You are an adult." : "You are not an adult.";
+       });
+
+    </script>
+</body>
+</html>
