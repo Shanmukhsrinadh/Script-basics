@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="telugu">Telugu:</label>
+        <input type="number" id="telugu" placeholder="Enter Telugu marks">
+        <br>
+        <label for="hindi">Hindi:</label>
+        <input type="number" id="hindi" placeholder="Enter Hindi marks">
+        <br>
+        <label for="english">English:</label>
+        <input type="number" id="english" placeholder="Enter English marks">
+        <br>
+        <label for="maths">Maths:</label>
+        <input type="number" id="maths" placeholder="Enter Maths marks">
+        <br>
+        <label for="science">Science:</label>
+        <input type="number" id="science" placeholder="Enter Science marks">
+        <br>
+        <label for="social">Social:</label>
+        <input type="number" id="social" placeholder="Enter Social marks">
+        <br>
+        <button type="button" onclick="calculate()">Calculate</button>
+    </form>
+    
+    <p id="result"></p>
+    
+
+    <script>
+        function calculate() {
+            // Get marks for each subject
+            let teluguinput = parseFloat(document.getElementById('telugu').value);
+            let hindiinput = parseFloat(document.getElementById('hindi').value);
+            let englishinput = parseFloat(document.getElementById('english').value);
+            let mathsinput = parseFloat(document.getElementById('maths').value);
+            let scienceinput = parseFloat(document.getElementById('science').value);
+            let socialinput = parseFloat(document.getElementById('social').value);
+            if (teluguinput > 100 || hindiinput > 100 || englishinput > 100 || mathsinput > 100 || scienceinput > 100 || socialinput > 100) {
+                alert("Marks cannot exceed 100.");
+                return; 
+            }
+            let totalMarks = teluguinput + hindiinput + englishinput + mathsinput + scienceinput + socialinput;
+            let average = totalMarks / 6;
+            let grade = '';
+            if (average >= 90) grade = 'A';
+            else if (average >= 75) grade = 'B';
+            else if (average >= 65) grade = 'C';
+            else if (average >= 35) grade = 'D';
+            else grade = 'F';
+            let passFail = (teluguinput >= 35 && hindiinput >= 35 && englishinput >= 35 && mathsinput >= 35 && scienceinput >= 35 && socialinput >= 35) ? 'Pass' : 'Fail';
+            document.getElementById('result').innerText = `Total Marks: ${totalMarks}\nGrade: ${grade}\nPass/Fail: ${passFail}`;
+        }
+    </script>
+    
+    
+    
+</body>
+</html>

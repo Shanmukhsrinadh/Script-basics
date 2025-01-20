@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Report Card</title>
+</head>
+<body>
+
+<h1>Student Report Card</h1>
+<form id="report-card-form">
+  <label for="student-name">Student Name:</label>
+  <input type="text" id="student-name" name="student-name" required><br><br>
+
+  <table>
+    <tr>
+      <th>Subject</th>
+      <th>Marks Obtained</th>
+    </tr>
+    <tr>
+      <td>Telugu</td>
+      <td><input type="number" id="telugu" name="telugu" max="100" required oninput="validateInput(this)"></td>
+    </tr>
+    <tr>
+      <td>Hindi</td>
+      <td><input type="number" id="hindi" name="hindi" max="100" required oninput="validateInput(this)"></td>
+    </tr>
+    <tr>
+      <td>English</td>
+      <td><input type="number" id="english" name="english" max="100" required oninput="validateInput(this)"></td>
+    </tr>
+    <tr>
+      <td>Maths</td>
+      <td><input type="number" id="maths" name="maths" max="100" required oninput="validateInput(this)"></td>
+    </tr>
+    <tr>
+      <td>Science</td>
+      <td><input type="number" id="science" name="science" max="100" required oninput="validateInput(this)"></td>
+    </tr>
+    <tr>
+      <td>History</td>
+      <td><input type="number" id="history" name="history" max="100" required oninput="validateInput(this)"></td>
+    </tr>
+  </table><br>
+
+  <button type="button" onclick="calculateResult()">Calculate</button>
+</form>
+
+<h2 id="result"></h2>
+<p id="total-marks"></p>
+<p id="grade"></p>
+<p id="status"></p>
+<p id="error-message" class="error"></p>
+
+<script>
+  function validateInput(input) {
+    if (parseInt(input.value) > 100) {
+      input.value = 100;
+      document.getElementById('error-message').innerText = 'Marks cannot be greater than 100!';
+    } else {
+      document.getElementById('error-message').innerText = '';
+    }
+  }
+
+  function calculateResult() {
+    const studentName = document.getElementById('student-name').value;
+    const telugu = parseInt(document.getElementById('telugu').value);
+    const hindi = parseInt(document.getElementById('hindi').value);
+    const english = parseInt(document.getElementById('english').value);
+    const maths = parseInt(document.getElementById('maths').value);
+    const science = parseInt(document.getElementById('science').value);
+    const history = parseInt(document.getElementById('history').value);
+
+    const marks = [telugu, hindi, english, maths, science, history];
+    const totalMarks = marks.reduce((sum, mark) => sum + mark, 0);
+
+    let grade = '';
+    let status = 'Pass';
+    
+    for (let mark of marks) {
+      if (mark < 35) {
+        status = 'Fail';
+        break;
+      }
+    }
+
+    if (status === 'Pass') {
+      if (totalMarks >= 90) grade = 'A';
+      else if (totalMarks >= 75) grade = 'B';
+      else if (totalMarks >= 60) grade = 'C';
+      else grade = 'D';
+    }
+    
+    document.getElementById('result').innerText = `Report Card for: ${studentName}`;
+    document.getElementById('total-marks').innerText = `Total Marks: ${totalMarks}/600`;
+    document.getElementById('grade').innerText = `Grade: ${grade}`;
+    document.getElementById('status').innerText = `Status: ${status}`;
+  }
+</script>
+
+</body>
+</html>

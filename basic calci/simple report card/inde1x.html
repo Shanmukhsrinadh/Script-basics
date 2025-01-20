@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="justify-items: center;">
+    <form>
+        <table border="1px" id="marksTable">
+            <th>Student Name</th> <th>Telugu</th> <th>hindi</th> <th>english</th> <th>Maths</th> <th>Science</th> <th>History</th> <th>Total Marks</th> <th>Grade</th> <th>Pass/Fail</th>
+            <tr><td><input type="text" placeholder="Enter Student Name"></td> <td><input type="text" placeholder="Enter Student Marks"></td> <td><input type="text" placeholder="Enter Student Marks"></td> <td><input type="text" placeholder="Enter Student Marks"></td> <td><input type="text" placeholder="Enter Student Marks"></td> <td><input type="text" placeholder="Enter Student Marks"></td> <td><input type="text" placeholder="Enter Student Marks"></td> <td><input type="text" placeholder="Total Marks"></td><td><input type="text" placeholder="Grade"></td><td><input type="text" placeholder="Pass/Fail"></td></tr>
+        </table>
+    </form>
+    <button type="button" onclick="calculateResults()">Calculate Results</button>
+
+    <script>
+        function calculateResults() {
+            let row = document.getElementById('marksTable').getElementsByTagName('tr')[1];
+            let cells1 = row.getElementsByTagName('td');
+            let marks1 = [
+                parseFloat(cells1[1].getElementsByTagName('input')[0].value) || 0,
+                parseFloat(cells1[2].getElementsByTagName('input')[0].value) || 0,
+                parseFloat(cells1[3].getElementsByTagName('input')[0].value) || 0,
+                parseFloat(cells1[4].getElementsByTagName('input')[0].value) || 0,
+                parseFloat(cells1[5].getElementsByTagName('input')[0].value) || 0,
+                parseFloat(cells1[6].getElementsByTagName('input')[0].value) || 0
+            ];
+
+            marks1.forEach((mark, index) => {
+                if (mark > 100) {
+                    alert("Marks for subject " + (index + 1) + " cannot exceed 100.");
+                    return;
+                }
+            });
+
+            const total1 = marks1.reduce((sum, mark) => sum + mark, 0);
+            cells1[7].getElementsByTagName('input')[0].value = total1;e
+            let average1 = total1 / marks1.length;
+            let grade1 = '';
+            if (average1 >= 90) grade1 = 'A';
+            else if (average1 >= 75) grade1 = 'B';
+            else if (average1 >= 65) grade1 = 'C';
+            else if (average1 >= 35) grade1 = 'D';
+            else grade1 = 'F';
+            cells1[8].getElementsByTagName('input')[0].value = grade1;
+
+            let passFail1 = marks1.every(mark => mark >= 35) ? 'Pass' : 'Fail';
+            cells1[9].getElementsByTagName('input')[0].value = passFail1;
+        }
+    </script>
+</body>
+</html>
