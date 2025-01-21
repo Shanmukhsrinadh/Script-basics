@@ -316,3 +316,94 @@ body {
  h4{
     color: aqua;
  }
+
+
+/* Modal styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal content styling */
+.modal-content {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(19, 15, 64, 0.7));
+    color: white;
+    padding: 2em;
+    border-radius: 25px;
+    width: 40%; /* Default width for larger screens */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Form styling inside the modal */
+.modal-content .form {
+    padding: 0; /* Remove any additional padding */
+}
+
+/* Button hover effect */
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Media queries for small and medium screens */
+
+/* Small screens (sm) */
+@media (max-width: 576px) {
+    .modal-content {
+        width: 80%; /* Use 80% width on small screens */
+        padding: 1.5em; /* Reduce padding for smaller screens */
+    }
+
+    .form-group input {
+        font-size: 14px; /* Adjust input font size for small screens */
+    }
+
+    .btn {
+        padding: 0.7em 1.5em; /* Adjust button padding */
+    }
+
+    .form-check-label {
+        font-size: 14px; /* Adjust label font size */
+    }
+}
+
+/* Medium screens (md) */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 60%; /* Use 60% width on medium screens */
+        padding: 1.8em; /* Reduce padding slightly for medium screens */
+    }
+
+    .form-group input {
+        font-size: 15px; /* Adjust input font size for medium screens */
+    }
+
+    .btn {
+        padding: 0.8em 1.7em; /* Adjust button padding */
+    }
+
+    .form-check-label {
+        font-size: 15px; /* Adjust label font size */
+    }
+}
+
+/* Large screens (default for larger screens) */
+@media (min-width: 769px) {
+    .modal-content {
+        width: 40%; /* Default width for larger screens */
+        padding: 2em; /* Default padding */
+    }
+}
+
+  

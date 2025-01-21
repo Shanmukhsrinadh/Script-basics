@@ -82,7 +82,7 @@
                             <h4></h4>
                         </div>
                         <div class="col-sm" style="color: white;">
-                            <p id="acnum">0000000000</p>
+                            <p id="acnum">123456789</p>
                         </div>
                     </div>
                     <div class="row text-start">
@@ -109,8 +109,8 @@
                             <h4></h4>
                         </div>
                         <div class="col-sm" style="color: white;">
-                        <p id="Avlbal">*****/-</p>
-                    </div>
+                            <p id="Avlbal">1000</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -119,10 +119,39 @@
 
 
     </div>
-<div class="text-center width-100%  pt-4">
-    <button class="btn" onclick="showLoginPrompt()">Credit</button>
-    <button class="btn" onclick="showLoginPrompt()">Debit</button>
-</div>
+
+    <div class="text-center width-100%  pt-4">
+        <button class="btn" onclick="creditWindowbtn()">Credit</button>
+        <button class="btn" onclick="debitWindowbtn()">Debit</button>
+    </div>
+
+
+    <div id="creditWindowModel" class="modal">
+        <div class="modal-content">
+          <form>
+            <div class="form-group">
+              <label>Add money</label>
+              <input type="number" class="form-control" id="creditAmount" placeholder="money money">
+            </div>
+            <button type="submit" class="btn btn-primary" onclick="creditAdd()">Submit</button>
+          </form>
+        </div>
+      </div>
+
+      <div id="debitWindowModel" class="modal">
+        <div class="modal-content">
+          <form>
+            <div class="form-group">
+              <label>Account Numaber</label>
+              <input type="number" class="form-control " id="debitAmount" placeholder="Enter money">
+            </div>
+            <button type="submit" class="btn btn-primary" onclick="debitAdd()">Submit</button>
+          </form>
+        </div>
+      </div>
+      
+
+<script src="script.js"></script>
 </body>
 
 </html>
