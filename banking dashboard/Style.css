@@ -208,37 +208,8 @@ body {
   cursor: pointer;
 }
 
-h2 {
-  text-align: center;
-  color: #333;
-}
 
-.form-group {
-  margin-bottom: 15px;
-}
 
-label {
-  display: block;
-  font-size: 1rem;
-  margin-bottom: 5px;
-}
-
-input {
-  width: 100%;
-  padding: 8px;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.error-message {
-  color: red;
-  text-align: center;
-  font-size: 0.9rem;
-  margin-top: 10px;
-}
-
-/* Optional: make modal responsive */
 @media (max-width: 480px) {
   .modal-content {
     width: 90%;
